@@ -1,0 +1,3 @@
+node_modules/*
+minified/example-translator-min.html
+minified/ipadict.txt
