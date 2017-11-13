@@ -1,0 +1,69 @@
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <title>Text to IPA Generator</title>
+
+</head>
+
+<body>
+  <!-- Load in the scripts first -->
+  <script src="../lib/text-to-ipa.js"></script>
+  <script src="../lib/converter-form.js"></script>
+
+  <!-- Load dictionary on window load, you may want to change this according to your needs.
+  To demonstrate this program, it's just done on window load though.
+  NOTE: This program implies that the CMU IPA dictionary (http://people.umass.edu/nconstan/CMU-IPA/)
+  has been loaded with loadDict(). This dictionary is by default included with this
+  program under the name 'ipadict.txt'. This _WILL NOT WORK_ with any other IPA dictionary.
+  -->
+  <script>
+    // Chrome will error here, therefore it isnt the dev browser of choice. Use Firefox instead.
+    // This is because the `loadDict()` method will use an XHTTP Request to get the file, which chrome won't like because
+    // It's on the local machine. If you try to read the file from say, the GitHub repository, it *still* won't work,
+    // because it's not hosted on the same site. It's not worth the trouble to use a workaround especially when the program
+    // works as intended when used on a live website. See http://surrsur.us/projects/ipa/english-to-ipa.html.
+    window.onload = TextToIPA.loadDict('../lib/ipadict.txt');
+  </script>
+
+  <p>Use the following text areas to convert english to it's IPA equivalent.</p>
+  <p>This is NOT case sensitive and punctuation is ignored.</p>
+  <br />
+  <p>Note: If you are using chrome and this is being ran locally, the dictionary will not load due to the way Chrome handles XHTTP Requests. It does handle them normally on proper websites. Check out a live example <a href="http://surrsur.us/projects/ipa/english-to-ipa.html">here</a></p>
+  <br />
+  
+  <!-- Create a form div -->
+  <div id="js-text-to-ipa-form">
+
+    <ul style="list-style-type: none;">
+      <!-- ipa-in is the designated ID to determine where text will be input from -->
+      <li><textarea id="ipa-in" placeholder="Write text here" rows="4" cols="50"></textarea></li>
+      
+      <!-- This submit button runs the conversion on the input text
+      As you can see, when this buton is pressed, the conver() function is ran
+      where the input, output, and error IDs are given as parameters.
+      These can be set to whatever you like, as long as inID and outID are text areas, and errID is a div.
+      -->
+      <li class="button"><button type="button" id="js-ipa-submit" onClick="ConverterForm.convert('ipa-in', 'ipa-out', 'ipa-err')">Convert!</button></li>
+      <!-- ipa-out is the designated ID to determine where the converted text will be output to -->
+      <li><textarea readonly id="ipa-out" placeholder="aʊtpʊt gəʊz hɪə" rows="4" cols="50"></textarea></li>
+
+    </ul>
+
+    <ul style="list-style-type: none;">
+      <li><noscript><p>This converter will not work unless Javascript is enabled.</p></noscript></li>
+      <li>
+        <!-- ipa-err is the designated ID to determine where any errors with the translation will go -->
+        <div id="ipa-err">
+          <p>Errors will go here if you make any. (This will be overwritten)</p>
+        </div>
+      </li>
+    </ul>
+
+  </div>
+
+</body>
+
+</html>
