@@ -1,3 +1,5 @@
+# node modules
 node_modules/*
-minified/example-translator-min.html
-minified/ipadict.txt
+
+# vscode
+.vscode
