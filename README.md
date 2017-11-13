@@ -1,4 +1,4 @@
-# text-to-ipa ![JS Version](https://img.shields.io/badge/javascript-ES6-orange.svg) [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+# text-to-ipa ![JS Version](https://img.shields.io/badge/javascript-ES5-orange.svg) [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 Text to IPA converter in JavaScript
 
