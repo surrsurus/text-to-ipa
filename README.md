@@ -18,20 +18,20 @@ This was kind of a pain to get working, as most of the time was found looking fo
 
 1. Include the following in the web page you want to deploy a converter to:
 
-```
+```html
 <script src="./text-to-ipa.js"></script>
 <script src="./converter-form.js"></script>
 ```
 
 2. Point the TextToIPA Object to the CMU IPA Dictionary like such:
 
-```
+```js
 window.onload = TextToIPA.loadDict('./ipadict.txt');
 ```
 
 3. Set up a UI for the converter in the webpage. Here's an example:
 
-```
+```html
 <div id="js-text-to-ipa-form">
 
   <ul style="list-style-type: none;">
