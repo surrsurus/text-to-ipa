@@ -10,6 +10,7 @@
 
 <body>
   <!-- Load in the scripts first -->
+  <script src="../lib/ipadict.js"></script>
   <script src="../lib/text-to-ipa.js"></script>
   <script src="../lib/converter-form.js"></script>
 
@@ -25,13 +26,12 @@
     // It's on the local machine. If you try to read the file from say, the GitHub repository, it *still* won't work,
     // because it's not hosted on the same site. It's not worth the trouble to use a workaround especially when the program
     // works as intended when used on a live website. See http://surrsur.us/projects/ipa/english-to-ipa.html.
-    window.onload = TextToIPA.loadDict('../lib/ipadict.txt');
+//    window.onload = TextToIPA.loadDict('../lib/ipadict.txt');
+    window.onload = TextToIPA.loadDictByObj(IPADict);
   </script>
 
   <p>Use the following text areas to convert english to it's IPA equivalent.</p>
   <p>This is NOT case sensitive and punctuation is ignored.</p>
-  <br />
-  <p>Note: If you are using chrome and this is being ran locally, the dictionary will not load due to the way Chrome handles XHTTP Requests. It does handle them normally on proper websites. Check out a live example <a href="http://surrsur.us/projects/ipa/english-to-ipa.html">here</a></p>
   <br />
   
   <!-- Create a form div -->
