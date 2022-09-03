@@ -2,7 +2,9 @@
 
 Text to IPA converter in JavaScript
 
-This comes with the core dictionary lookup and example frontend. This project assumes you will be running this translator in a browser of some sort. `text-to-ipa.js` contains the main logic for loading the `ipadict.txt` and looking up words, while `converter-form.js` and `example-translator.html` provide an interface.
+This comes with the core dictionary lookup and example frontend. This project assumes you will be running this translator in a browser of some sort. `text-to-ipa.js` contains the main logic for loading the `ipadict.js` and looking up words, while `converter-form.js` and `example-translator.html` provide an interface.
+
+You can automatically generate `ipadict.js` file from `ipadict.txt` through `migrate.sh`. This is mainly to bypass Chrome's policy.
 
 Further reading on how this all takes place can be found inside the respective `.js` files where extensive documentation can be found.
 
@@ -19,6 +21,7 @@ This was kind of a pain to get working, as most of the time was found looking fo
 1. Include the following in the web page you want to deploy a converter to:
 
 ```html
+<script src="./ipadict.js"></script>
 <script src="./text-to-ipa.js"></script>
 <script src="./converter-form.js"></script>
 ```
@@ -26,7 +29,7 @@ This was kind of a pain to get working, as most of the time was found looking fo
 2. Point the TextToIPA Object to the CMU IPA Dictionary like such:
 
 ```js
-window.onload = TextToIPA.loadDict('./ipadict.txt');
+window.onload = TextToIPA.loadDictByObj(IPADict);
 ```
 
 3. Set up a UI for the converter in the webpage. Here's an example:
